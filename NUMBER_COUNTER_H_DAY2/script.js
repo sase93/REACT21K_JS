@@ -15,7 +15,7 @@ function toSuomiTens(targetNumber) {
     return numberArray[((randomNum/10)-1)];
 }
 function toSuomiOthers(targetNumber) {
-    return (numberArray[((Math.trunc(randomNum/10))-1)]) + "kymmentä" + (numberArray[((randomNum % 10)-1)])
+    return (numberArray[((Math.trunc(randomNum/10))-1)]) + "kymmentä" + (numberArray[((randomNum % 10)-1)]);
 }
 
 if (randomNum === 100) {
@@ -43,5 +43,5 @@ if (randomNum >= 20 && randomNum <= 90 && randomNum % 10 < 1) {
     }
 
 if (randomNum >= 21 && randomNum <= 99 && randomNum % 10 != 0) {
-    console.log(toSuomiOthers(randomNum))
+    console.log(toSuomiOthers(randomNum));
     }
