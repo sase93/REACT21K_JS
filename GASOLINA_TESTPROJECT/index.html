@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GASOLINA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>How much gasoline you will you get?</h1>
+    <p>
+        This is a program that asks the price of the gasoline and amount of money from the user. The program calculates how much gasoline the user gets with the money. The result is displayed on the screen.
+    </p>
+    <form>
+        <div>
+            <label for="price">Price</label>
+            <input type="number" name="" id="price">
+        </div>
+        <div>
+            <label for="money">Money</label>
+            <input type="number" name="" id="money">
+        </div>
+    </form>
+    <button onclick="calculate()">Calculate</button>
+    <p>You can buy: <span id="answer"></span> liters of gasoline</p>
+    <p><span id="status"></span></p>
+    <script src="script.js"></script>
+</html>

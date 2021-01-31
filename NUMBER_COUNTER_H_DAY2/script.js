@@ -1,47 +1,75 @@
 console.log('Welcome to the Number Counter. A random number between 0-100 will be chosen and displayed, and beneath that the name of that number in Finnish.');
-
-let randomNum = Math.round(Math.random() * 100);
+let randomNum = 220;
+/* let randomNum = Math.round(Math.random() * 1000); */
 console.log('The random number is:', randomNum);
 
-let numberArray = ["yksi", "kaksi", "kolme", "neljä", "viisi", "kuusi", "seitsemän", "kahdeksan", "yhdeksän"];
+let numberArray = ["yksi", "kaksi", "kolme", "neljä", "viisi", "kuusi", "seitsemän", "kahdeksan", "yhdeksän", "kymmenen"];
 
-function toSuomi(targetNumber) {
+function toSuomi() {
     return numberArray[(randomNum-1)];
 }
-function toSuomiToista(targetNumber) {
+function toSuomiToista() {
     return numberArray[(randomNum-11)];
 }
-function toSuomiTens(targetNumber) {
+function toSuomiTens() {
     return numberArray[((randomNum/10)-1)];
 }
-function toSuomiOthers(targetNumber) {
+function toSuomiOtherTens() {
     return (numberArray[((Math.trunc(randomNum/10))-1)]) + "kymmentä" + (numberArray[((randomNum % 10)-1)]);
 }
+/* function toSuomiSata() {
+    return numberArray[(randomNum-101)];
+} 
+only returns single last digit of 101-109*/
+function toSuomiHundreds() {
+    return (numberArray[((randomNum/100)-1)]);
+}
+function toSuomiOtherHundreds() {
+    return (numberArray[((Math.trunc(randomNum/100))-1)]) + "sataa" + (numberArray[((Math.trunc(((randomNum-(Math.trunc(randomNum/100))*100)/10))-11))])  + "kymmentä" + (numberArray[((randomNum % 10)-1)]);
+} // undefined tens + last digit zero//
 
 if (randomNum === 100) {
     console.log("sata");
-    }
 
-if (randomNum === 0) {
+} else if (randomNum === 1000) {
+    console.log("tuhat");
+
+} else if (randomNum === 0) {
     console.log("nolla");
-    }
 
-if (randomNum >= 1 && randomNum <= 9) {
+} else if (randomNum >= 1 && randomNum <= 10) {
     console.log(toSuomi(randomNum));
-    }
 
-if (randomNum === 10) {
-    console.log("kymmenen");
-    }
-
-if (randomNum >= 11 && randomNum <= 19) {
+} else if (randomNum >= 11 && randomNum <= 19) {
     console.log(toSuomiToista(randomNum) + "toista");
-    }
-        
-if (randomNum >= 20 && randomNum <= 90 && randomNum % 10 < 1) {
-    console.log(toSuomiTens(randomNum) + "kymmentä");
-    }
 
-if (randomNum >= 21 && randomNum <= 99 && randomNum % 10 != 0) {
-    console.log(toSuomiOthers(randomNum));
-    }
+} else if (randomNum >= 20 && randomNum <= 90 && randomNum % 10 < 1) {
+    console.log(toSuomiTens(randomNum) + "kymmentä");
+
+} else if (randomNum >= 21 && randomNum <= 99 && randomNum % 10 != 0) {
+    console.log(toSuomiOtherTens(randomNum));
+
+} else if (randomNum >= 101 && randomNum <= 199) {
+    console.log(toSuomiSata(randomNum));
+
+} else if (randomNum >= 200 && randomNum <= 900 && randomNum % 100 < 1) {
+    console.log(toSuomiHundreds(randomNum) + "sataa");
+
+} else if (randomNum >= 201 && randomNum <= 999 && randomNum % 100 != 0) {
+    console.log(toSuomiOtherHundreds(randomNum));
+
+}
+
+/*  
+    
+  if (0 <= randomNum && randomNum <= 9){
+      switch(randomNum){
+          case 0:
+              result = nolla
+              break;
+              case 1 ...
+              default:
+                  break;
+      }
+      result and for example result += 'toista'
+  }  */

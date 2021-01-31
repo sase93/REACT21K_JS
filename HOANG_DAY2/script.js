@@ -38,3 +38,30 @@ if((firstNum === 1) && (secondNum === 1) && (thirdNum === 1) && (fourthNum === 1
 if((firstNum === 0) && (secondNum === 0) && (thirdNum === 0) && (fourthNum === 0) && (fifthNum === 0)) {
     console.log('ANTI-JACKPOT! You got the number 0 five times! The probability of this happening is the same as for the jackpot; congratulations, but you did not win this time.');
 }
+
+/* Rajeev array push with 'while':
+let arr = [];
+while (arr.length < 5){
+    let r = Math.floor(Math.random()*10) ;
+    arr push(r);
+} */
+
+/**Hoang number after Math.floor(Math.random()*10)
+ * 
+ * number1 = number1 % 2 === 0 ? 0 : 1;
+ * number2 = number2 % 2 === 0 ? 0 : 1;
+ * number3 = number3 % 2 === 0 ? 0 : 1;
+ * number4 = number4 % 2 === 0 ? 0 : 1;
+ * number5 = number5 % 2 === 0 ? 0 : 1;
+ */
+
+ /** xxx && xxx && ... can't be scaled or smaller wins, unlike e.g.
+  * if (sum === 5)
+  * consolelog win
+  * else if sum === 0
+  * all zeros
+  * else if sum >= 3
+  * smaller ...
+  * 
+  * but this has drawback if you want more than 0 and 1, can't sum up 1-7 for example
+  */
