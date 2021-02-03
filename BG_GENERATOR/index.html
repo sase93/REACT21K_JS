@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <header>
+        <h1>Generate your own background!</h1>
+    </header>
+    <form>
+        <h2>First choose the direction.</h2>
+        <div class="direction">
+            <input checked type="radio" id="leftright" name="direction" value="to right"/>
+            <label for="leftright">Left to right</label>
+        </div>
+        <div class="direction">
+            <input type="radio" id="rightleft" name="direction" value="to left"/>
+            <label for="rightleft">Right to left</label>
+        </div>
+        <div class="direction">
+            <input type="radio" id="topbottom" name="direction" value="to bottom"/>
+            <label for="topbottom">Top to bottom</label>
+        </div>
+        <div class="direction">
+            <input type="radio" id="bottomright" name="direction" value="to top right"/>
+            <label for="bottomright">Bottom to right</label>
+        </div>
+        <h2>Then choose your colors.</h2>
+        <input type="color" id="color1" value="#ffe262"/>
+        <input type="color" id="color2" value="#0d7e17"/>
+        <h2>Click the button to generate the background!</h2>
+        <input type="submit" value="Generate"/>
+    </form>
+    <h2>Copy your CSS here.</h2>
+    <p></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
