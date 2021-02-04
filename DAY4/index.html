@@ -8,14 +8,24 @@
 </head>
 <body>
     <div>
-        <h3>There are bulbs in a circle. Bulbs that are lit are yellow,</h3>
-        <h3>the randomized winning bulb is red and the rest are green.</h3>
-        <h3>Try to stop the cycle of flashing bulbs on the winning bulb with the STOP button!</h3>
-        <h3>You can use the RESET button to try again after pressing STOP.</h3>
+        <p>Press START to place bulbs in a circle. Bulbs that are lit are yellow,</p>
+        <p>the randomized winning bulb is red and the rest are green.</p>
+        <p>Try to stop the cycle of flashing bulbs on the winning bulb with the STOP button!</p>
+        <p>You can use the RESET button to reload the page, e.g. to try again after pressing STOP.</p>
+        <p>Before pressing START you can adjust the CYCLE SPEED and the</p>
+        <p>AMOUNT OF BULBS with the sliders provided.</p>
     </div>
     <div id="bulbs"></div>
+    <input type="range" id="speed" name="speed" min="30" max="300"/>
+    <label for="speed">CYCLE SPEED</label>
+    <br>
+    <input type="range" id="bulbcount" name="bulbcount" min="4" max="20"/>
+    <label for="bulbcount">AMOUNT OF BULBS</label>
+    <br>
+    <button type="button" id="start">START</button>
     <button type="button" id="stop">STOP</button>
     <button type="button" id="reset">RESET</button>
+    <p><span id="result"></span></p>
     <script src="script.js"></script>
 </body>
 </html>
