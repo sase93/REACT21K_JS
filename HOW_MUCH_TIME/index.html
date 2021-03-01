@@ -8,20 +8,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>HOW MUCH TIME?</h1>
+    <h2>HOW MUCH TIME?</h2>
+    <p>Set an end date and event name and click 'Calculate!' to find out how much time there is until the end date!</p>
+    <p>You can also specify a start date if you wish (when I finish the code.)</p>
     <form>
         <div>
             <label for="enddate">End date</label>
-            <input type="text" id="enddate" value="DD/MM/YYYY">
+            <input type="text" id="enddate" value="MM/DD/YYYY">
         </div>
         <div>
             <label for="eventname">Event name</label>
             <input type="text" id="eventname" value="Event Name">
         </div>
+        <div>
+            <label for="startdate">Start date</label>
+            <input type="text" id="startdate" value="MM/DD/YYYY">
+        </div>
     </form>
-    <button onclick="calculate()">Submit</button>
+    <button onclick="calculate()">Calculate!</button>
+    <p>
+        <span id="yourevent"></span>
+    </p>
     <p>
         <span id="answer"></span>
+    </p>
+    <p>
+        <span id="secondanswer"></span>
     </p>
     <script src="script.js"></script>
 </body>
