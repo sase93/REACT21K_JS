@@ -1,0 +1,50 @@
+body {
+  background-color: skyblue;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.targets,
+.timing {
+  margin: 70px;
+}
+
+.targets {
+  display: flex;
+  justify-content: center;
+}
+
+#gameover {
+  position: absolute;
+  top: 20vh;
+  left: 38vw;
+  height: 200px;
+  width: 400px;
+  border: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10%;
+  background-color: snow;
+  z-index: 100;
+}
+
+.gameoveroff {
+  display: none;
+}
+
+.button {
+  min-height: 100px;
+  min-width: 100px;
+  border-radius: 50%;
+  background-color: lightyellow;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+button {
+  margin-left: 50px;
+  margin-right: 50px;
+  height: 40px;
+  width: 80px;
+  font-size: 20px;
+}

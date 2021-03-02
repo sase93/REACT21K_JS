@@ -4,7 +4,11 @@ function calculate() {
     let startDate = document.querySelector("#startdate").value;
 
     let parseEnd = Date.parse(endDate);
-    let dateNow = new Date();
+    let dateNow = Date.parse(startDate);
+    console.log(dateNow);
+    if (dateNow !== Number){
+        dateNow = new Date();
+    }
 
     let minutes = 1000*60;
     let hours = minutes*60;
@@ -32,5 +36,4 @@ function calculate() {
 
     secondanswer.textContent = `Business days left until event: ${howMuch-weekendCounter}`;
     
-    //For the start date I think I might adjust all of the code above such that it will consider the start date but default to 'new Date()' if a valid date is not set for the start date.
 }
