@@ -1,0 +1,49 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img {
+  margin-left: 50px;
+}
+
+#info {
+  background-color: rgb(255, 213, 213);
+  border-style: solid;
+  border-width: 0px 5px 0px 5px;
+  border-color: crimson;
+}
+
+h3 {
+  margin-bottom: 5px;
+}
+
+p {
+  padding-bottom: 5px;
+}
+
+h3,
+p {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+#sprite {
+  max-height: 90px;
+  background-color: rgb(246, 238, 220);
+  border-style: solid;
+  border-width: 6px 5px 0px 5px;
+  border-color: crimson;
+}
+
+.invisible {
+  display: none;
+}
+
+#clicked-pokemon {
+  height: 250px;
+  width: 200px;
+  background-color: crimson;
+  position: sticky;
+  top: 10px;
+  left: 160px;
+}
