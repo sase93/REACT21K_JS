@@ -14,15 +14,15 @@ let player = {
     attack: function () {
         enemy.health = enemy.health - (this.damage - enemy.defense);
         if (enemy.health >= 1) {
-            console.log(`${enemy.id} took damage! ${enemy.id} HP: ${enemy.health}`);
+            console.log(`${enemy.id} took ${this.damage - enemy.defense} damage! ${enemy.id} HP: ${enemy.health}`);
         } else {
-            console.log(`${enemy.id} was defeated! Total victories: ${enemyCount}`);
+            console.log(`${enemy.id} took ${this.damage - enemy.defense} damage and was defeated! Total victories: ${enemyCount}`);
             enemyCount++;
             if (enemyCount >= 3) {
                 enemy.defense = 3;
             }
             enemy.health = 10;
-            console.log(`A new ${enemy.id} appeared! HP: ${enemy.health} DMG: ${enemy.damage} DEF: ${enemy.defense}`);
+            console.log(`A new ${enemy.id} appeared! ||HP: ${enemy.health}|| ||DMG: ${enemy.damage}|| ||DEF: ${enemy.defense}||`);
         }
     }
 }
@@ -35,9 +35,9 @@ let enemy = {
     attack: function () {
         player.health = player.health - (this.damage - player.defense);
         if (player.health >= 1) {
-            console.log(`You took damage! Your HP: ${player.health}`);
+            console.log(`You took ${this.damage - player.defense} damage! Your HP: ${player.health}`);
         } else {
-            console.log(`You were defeated!`);
+            console.log(`You took ${this.damage - player.defense} damage and were defeated!`);
             document.querySelector("#turn").classList.add("invisible");
             document.querySelector("#reset").classList.remove("invisible");
         }
