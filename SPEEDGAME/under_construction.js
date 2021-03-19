@@ -1,5 +1,4 @@
-/* Speed gets faster
-After missed three highlighted button game ends
+/* After missed three highlighted button game ends
 After clicking wrong circle game ends
 Add sounds to start game and end game
 Add own image to highlighted circle
@@ -17,46 +16,37 @@ let button1 = document.querySelector("#one");
 let button2 = document.querySelector("#two");
 let button3 = document.querySelector("#three");
 let button4 = document.querySelector("#four");
+const BUTTONS = document.querySelectorAll(".button");
+const BTNARRAY = [button1, button2, button3, button4];
+let buttonArray = [button1, button2, button3, button4];
 
-button1.addEventListener("click", function(){ console.log("Button 1 pressed.");});
-button2.addEventListener("click", function(){ console.log("Button 2 pressed.");});
-button3.addEventListener("click", function(){ console.log("Button 3 pressed.");});
-button4.addEventListener("click", function(){ console.log("Button 4 pressed.");});
+/* console.log(BUTTONS);
+console.log(buttonArray); */
 
 function addScore() {
-    gameScore++;
-    score.textContent = gameScore;
+    buttonArray.forEach(button => addEventListener('click', function() {
+
+    }));
 }
 
 let currentTarget = 0;
 let missCounter = 0;
+let gameSpeed = 1000;
 
 function gameEngine() {
-    let buttonInterval = setInterval(nextTarget, 1000);
+    let buttonInterval = setTimeout(nextTarget, gameSpeed);
 
     function nextTarget() {
-        if (currentTarget > 0) {
-            button1.classList.remove("active");
-            button2.classList.remove("active");
-            button3.classList.remove("active");
-            button4.classList.remove("active");
+        buttonArray = BTNARRAY;
+        let activeIndex = buttonArray.findIndex(each => each.classList.contains('active'));
+        if (activeIndex != -1){
+            buttonArray.splice(activeIndex, 1);
         }
-        let nextTarget = Math.floor(Math.random()*4);
-        if (currentTarget = nextTarget) {
-            currentTarget = 1;
-        } else {
-            currentTarget = nextTarget;
-            missCounter++;
-            if (currentTarget = 1) {
-                button1.classList.add("active");
-            } else if (currentTarget = 2) {
-                button2.classList.add("active");
-            } else if (currentTarget = 3) {
-                button3.classList.add("active");
-            } else {
-                button4.classList.add("active");
-            }
-        }
+        let randomNum = Math.floor(Math.random() * buttonArray.length);
+        BUTTONS.forEach(button => button.classList.remove("active"));
+        buttonArray[randomNum].classList.add("active");
+        gameSpeed = gameSpeed - 15;
+        let buttonInterval = setTimeout(nextTarget, gameSpeed);
     }
 }
 
@@ -71,7 +61,6 @@ function start() {
 }
 
 function stop() {
-    clearInterval(buttonInterval);
     button1.classList.add("noclick");
     button2.classList.add("noclick");
     button3.classList.add("noclick");

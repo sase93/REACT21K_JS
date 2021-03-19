@@ -3,17 +3,30 @@ body {
   text-align: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.targets,
-.timing {
-  margin: 70px;
-}
-
+/** *************************** Targets ************************************ **/
 .targets {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
+  margin-top: 70px;
+  margin-bottom: 70px;
 }
 
+.button {
+  min-height: 100px;
+  min-width: 100px;
+  border-radius: 50%;
+  background-color: lightyellow;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.noclick {
+  pointer-events: none;
+}
+
+.active {
+  background-color: crimson;
+}
+/** *************************** Game over screen ************************** **/
 #gameover {
   position: absolute;
   top: 20vh;
@@ -31,20 +44,15 @@ body {
 .gameoveroff {
   display: none;
 }
-
-.button {
-  min-height: 100px;
-  min-width: 100px;
-  border-radius: 50%;
-  background-color: lightyellow;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
+/** *************************** Start & stop buttons ************************* **/
 button {
   margin-left: 50px;
   margin-right: 50px;
   height: 40px;
   width: 80px;
   font-size: 20px;
+}
+
+.invis {
+  display: none;
 }

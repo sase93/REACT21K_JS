@@ -12,20 +12,20 @@
     <h2>Current score:</h2>
     <h2 id="score"></h2>
     <div class="targets">
-        <div class="button" id="one" onclick="addScore()"></div>
-        <div class="button" id="two" onclick="addScore()"></div>
-        <div class="button" id="three" onclick="addScore()"></div>
-        <div class="button" id="four" onclick="addScore()"></div>
+        <div class="button noclick" id="one" onclick="addScore()"></div>
+        <div class="button noclick" id="two" onclick="addScore()"></div>
+        <div class="button noclick" id="three" onclick="addScore()"></div>
+        <div class="button noclick" id="four" onclick="addScore()"></div>
     </div>
-    <div id="gameover" class="gameoveroff">
+    <div id="gameover" class="invis">
         <h1>Game over!</h1>
         <h2>Your score was:</h2>
         <h2 id="finalscore"></h2>
     </div>
     <div class="timing">
-        <button onclick="start()">Start</button>
-        <button onclick="stop()">Stop</button>
+        <button id="start" onclick="start()">Start</button>
+        <button id="stop" onclick="stop()" class="invis">Stop</button>
     </div>
-    <script src="script.js"></script>
+    <script src="under_construction.js"></script>
 </body>
 </html>
