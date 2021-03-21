@@ -30,7 +30,7 @@ function addScore() {
 }
 
 let currentTarget = 0;
-let missCounter = 0;
+let missCounter = 1;
 let gameSpeed = 1000;
 
 function gameEngine() {
