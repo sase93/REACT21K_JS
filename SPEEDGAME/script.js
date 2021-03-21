@@ -20,7 +20,7 @@ let music;
 // *********** Some initial values ***********
 
 let gameOverStatus = false;
-let missCounter = -1;
+let missCounter = -1; // This value is increased in nextTarget().
 misses.textContent = 0;
 let gameSpeed = 1000;
 
@@ -50,9 +50,9 @@ buttonArray.forEach(button => button.addEventListener('click', checkActive));
 function checkActive(button) {
     let buttonId = button.target.id;
     if (document.querySelector(`#${buttonId}`).classList.contains('active')) {
-        document.querySelector(`#${buttonId}`).classList.add("noclick");
+        document.querySelector(`#${buttonId}`).classList.add("noclick"); // To limit scoring to only 1 point per target.
     } else {
-        gameScore = gameScore - 1;
+        gameScore = gameScore - 1; // Clicking will still execute addScore(), so substract one point to keep the score correct.
         score.textContent = gameScore;
         stop();
     }
@@ -67,21 +67,20 @@ function gameEngine() {
         console.log("game over status:" + gameOverStatus);
         if (gameOverStatus === false) {
             missCounter++;
-            misses.textContent = ((gameScore - missCounter) * -1);
+            misses.textContent = ((gameScore - missCounter) * -1); // Compare score and missCounter to determine the true amount of missed targets.
             if ((gameScore - missCounter) <= -3) {
-                console.log('Test message for Margit!');
-                stop();
+                return stop(); // 'return' used to stop the rest of nextTarget() from running.
             }
             let randomNum = Math.floor(Math.random() * buttonArray.length);
             let activeIndex = buttonArray.findIndex(each => each.classList.contains('active'));
             if (activeIndex === randomNum) {
-                randomNum = randomNum == 3 ? 1 : randomNum + 1;
+                randomNum = randomNum == 3 ? 1 : randomNum + 1; // To prevent the same target coming twice in a row.
             }
             BUTTONS.forEach(button => button.classList.remove("active"));
-            BUTTONS.forEach(button => button.classList.remove("noclick"));
+            BUTTONS.forEach(button => button.classList.remove("noclick")); // To remove class 'noclick' that was added to prevent double scoring in checkActive().
             buttonArray[randomNum].classList.add("active");
             gameSpeed = gameSpeed - 15;
-            let buttonInterval = setTimeout(nextTarget, gameSpeed);
+            buttonInterval = setTimeout(nextTarget, gameSpeed);
         }
     }
 }
