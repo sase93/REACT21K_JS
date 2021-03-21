@@ -51,7 +51,7 @@ buttonArray.forEach(button => button.addEventListener('click', checkActive));
 function checkActive(button) {
     let buttonId = button.target.id;
     if (document.querySelector(`#${buttonId}`).classList.contains('active')) {
-        return;
+        document.querySelector(`#${buttonId}`).classList.add("noclick");
     } else {
         gameScore = gameScore - 1;
         score.textContent = gameScore;
@@ -78,16 +78,13 @@ function gameEngine() {
                 randomNum = randomNum == 3 ? 1 : randomNum + 1;
             }
             BUTTONS.forEach(button => button.classList.remove("active"));
+            BUTTONS.forEach(button => button.classList.remove("noclick"));
             buttonArray[randomNum].classList.add("active");
             gameSpeed = gameSpeed - 15;
             let buttonInterval = setTimeout(nextTarget, gameSpeed);
         }
     }
 }
-
-/* if (activeIndex != -1){
-            buttonArray.splice(activeIndex, 1);
-        } */
 
 // *********** Start button functions ***********
 
@@ -103,7 +100,7 @@ function start() {
     music.play();
 }
 
-// *********** Stop button functions ***********
+// *********** End of game functions ***********
 
 function stop() {
     music.stop();
