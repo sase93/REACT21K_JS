@@ -73,6 +73,10 @@ function gameEngine() {
                 stop();
             }
             let randomNum = Math.floor(Math.random() * buttonArray.length);
+            let activeIndex = buttonArray.findIndex(each => each.classList.contains('active'));
+            if (activeIndex === randomNum) {
+                randomNum = randomNum == 3 ? 1 : randomNum + 1;
+            }
             BUTTONS.forEach(button => button.classList.remove("active"));
             buttonArray[randomNum].classList.add("active");
             gameSpeed = gameSpeed - 15;
@@ -80,8 +84,6 @@ function gameEngine() {
         }
     }
 }
-
-/* let activeIndex = buttonArray.findIndex(each => each.classList.contains('active')); */
 
 /* if (activeIndex != -1){
             buttonArray.splice(activeIndex, 1);
