@@ -20,17 +20,17 @@ const BUTTONS = document.querySelectorAll(".button");
 const BTNARRAY = [button1, button2, button3, button4];
 let buttonArray = [button1, button2, button3, button4];
 
-/* console.log(BUTTONS);
-console.log(buttonArray); */
-
 function addScore() {
-    buttonArray.forEach(addEventListener('click', function() {
-        gameScore++;
-        score.textContent = gameScore;
-    }));
+    gameScore++;
+    score.textContent = gameScore;
+    buttonArray.forEach(button => button.addEventListener('click', checkActive));
 }
 
-let currentTarget = 0;
+function checkActive(button) {
+    let buttonId = button.target.classList;
+    console.log(buttonId);
+}
+
 let missCounter = 0;
 let gameSpeed = 1000;
 
@@ -38,8 +38,7 @@ function gameEngine() {
     let buttonInterval = setTimeout(nextTarget, gameSpeed);
 
     function nextTarget() {
-        buttonArray = BTNARRAY;
-        let activeIndex = buttonArray.findIndex(each => each.classList.contains('active'));
+        /* let activeIndex = buttonArray.findIndex(each => each.classList.contains('active')); */
         missCounter++;
         if ((gameScore - missCounter) <= -4) {
             stop();
@@ -73,5 +72,5 @@ function stop() {
     document.querySelector("#gameover").classList.remove("invis");
     finalscore.textContent = gameScore;
     document.querySelector("#stop").classList.add("invis");
-    document.querySelector("#start").classList.remove("invis");
+    document.querySelector("#reset").classList.remove("invis");
 }
