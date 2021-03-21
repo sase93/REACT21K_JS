@@ -1,14 +1,30 @@
-/* Add sounds to start game and end game
-Add own image to highlighted circle
-End message is conditional based on the score
-Advanced speedgame (optional): 
+// *********** For game sounds ***********
 
-User can enter her/his name and end result will be saved
-Top 10 score is shown in end of the game
-Implement levels – speed gets faster or there will be more circles in every level*/
+function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+      this.sound.play();
+    }
+    this.stop = function(){
+      this.sound.pause();
+    }
+}
 
-let gameScore = 0;
-score.textContent = gameScore;
+let music;
+
+// *********** Some initial values ***********
+
+let gameOverStatus = false;
+let missCounter = -1;
+misses.textContent = 0;
+let gameSpeed = 1000;
+
+// *********** Target buttons ***********
 
 let button1 = document.querySelector("#one");
 let button2 = document.querySelector("#two");
@@ -18,10 +34,17 @@ const BUTTONS = document.querySelectorAll(".button");
 const BTNARRAY = [button1, button2, button3, button4];
 let buttonArray = [button1, button2, button3, button4];
 
+// *********** Score tracking ***********
+
+let gameScore = 0;
+score.textContent = gameScore;
+
 function addScore() {
     gameScore++;
     score.textContent = gameScore;
 }
+
+// *********** Checking if target button is active ***********
 
 buttonArray.forEach(button => button.addEventListener('click', checkActive));
 
@@ -36,10 +59,7 @@ function checkActive(button) {
     }
 }
 
-let gameOverStatus = false;
-let missCounter = -1;
-misses.textContent = 0;
-let gameSpeed = 1000;
+// *********** Actions after game starts ***********
 
 function gameEngine() {
     let buttonInterval = setTimeout(nextTarget, gameSpeed);
@@ -67,6 +87,8 @@ function gameEngine() {
             buttonArray.splice(activeIndex, 1);
         } */
 
+// *********** Start button functions ***********
+
 function start() {
     button1.classList.remove("noclick");
     button2.classList.remove("noclick");
@@ -75,9 +97,16 @@ function start() {
     document.querySelector("#start").classList.add("invis");
     document.querySelector("#stop").classList.remove("invis");
     gameEngine();
+    music = new sound("speedgame.mp3");
+    music.play();
 }
 
+// *********** Stop button functions ***********
+
 function stop() {
+    music.stop();
+    endSound = new sound("gameover.mp3");
+    endSound.play();
     gameOverStatus = true;
     console.log("game over:" + gameOverStatus);
     button1.classList.add("noclick");
