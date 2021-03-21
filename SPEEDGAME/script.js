@@ -24,13 +24,14 @@ let buttonArray = [button1, button2, button3, button4];
 console.log(buttonArray); */
 
 function addScore() {
-    buttonArray.forEach(button => addEventListener('click', function() {
-
+    buttonArray.forEach(addEventListener('click', function() {
+        gameScore++;
+        score.textContent = gameScore;
     }));
 }
 
 let currentTarget = 0;
-let missCounter = 1;
+let missCounter = 0;
 let gameSpeed = 1000;
 
 function gameEngine() {
@@ -39,9 +40,13 @@ function gameEngine() {
     function nextTarget() {
         buttonArray = BTNARRAY;
         let activeIndex = buttonArray.findIndex(each => each.classList.contains('active'));
-        if (activeIndex != -1){
-            buttonArray.splice(activeIndex, 1);
+        missCounter++;
+        if ((gameScore - missCounter) <= -4) {
+            stop();
         }
+        /* if (activeIndex != -1){
+            buttonArray.splice(activeIndex, 1);
+        } */
         let randomNum = Math.floor(Math.random() * buttonArray.length);
         BUTTONS.forEach(button => button.classList.remove("active"));
         buttonArray[randomNum].classList.add("active");
