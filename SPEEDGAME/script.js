@@ -31,7 +31,6 @@ let button2 = document.querySelector("#two");
 let button3 = document.querySelector("#three");
 let button4 = document.querySelector("#four");
 const BUTTONS = document.querySelectorAll(".button");
-const BTNARRAY = [button1, button2, button3, button4];
 let buttonArray = [button1, button2, button3, button4];
 
 // *********** Score tracking ***********
@@ -65,11 +64,12 @@ function gameEngine() {
     let buttonInterval = setTimeout(nextTarget, gameSpeed);
 
     function nextTarget() {
-        console.log("game over:" + gameOverStatus);
+        console.log("game over status:" + gameOverStatus);
         if (gameOverStatus === false) {
             missCounter++;
             misses.textContent = ((gameScore - missCounter) * -1);
             if ((gameScore - missCounter) <= -3) {
+                console.log('Test message for Margit!');
                 stop();
             }
             let randomNum = Math.floor(Math.random() * buttonArray.length);
@@ -89,10 +89,7 @@ function gameEngine() {
 // *********** Start button functions ***********
 
 function start() {
-    button1.classList.remove("noclick");
-    button2.classList.remove("noclick");
-    button3.classList.remove("noclick");
-    button4.classList.remove("noclick");
+    BUTTONS.forEach(button => button.classList.remove("noclick"));
     document.querySelector("#start").classList.add("invis");
     document.querySelector("#stop").classList.remove("invis");
     gameEngine();
@@ -108,10 +105,8 @@ function stop() {
     endSound.play();
     gameOverStatus = true;
     console.log("game over:" + gameOverStatus);
-    button1.classList.add("noclick");
-    button2.classList.add("noclick");
-    button3.classList.add("noclick");
-    button4.classList.add("noclick");
+    BUTTONS.forEach(button => button.classList.remove("active"));
+    BUTTONS.forEach(button => button.classList.add("noclick"));
     document.querySelector("#gameover").classList.remove("invis");
 
     if (gameScore < 11) {
