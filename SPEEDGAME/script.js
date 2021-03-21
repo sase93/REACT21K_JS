@@ -38,7 +38,8 @@ function checkActive(button) {
 }
 
 let gameOverStatus = false;
-let missCounter = 0;
+let missCounter = -1;
+misses.textContent = 0;
 let gameSpeed = 1000;
 
 function gameEngine() {
@@ -46,7 +47,8 @@ function gameEngine() {
 
     function nextTarget() {
         missCounter++;
-        if ((gameScore - missCounter) <= -4) {
+        misses.textContent = ((gameScore - missCounter) * -1);
+        if ((gameScore - missCounter) <= -3) {
             stop();
         }
         let randomNum = Math.floor(Math.random() * buttonArray.length);

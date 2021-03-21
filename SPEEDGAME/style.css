@@ -24,7 +24,7 @@ body {
 }
 
 .active {
-  background-color: crimson;
+  background-image: url("https://public.bc.fi/s2100145/Group%2013.png");
 }
 /** *************************** Game over screen ************************** **/
 #gameover {
