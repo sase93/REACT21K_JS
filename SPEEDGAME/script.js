@@ -1,6 +1,4 @@
-/* After missed three highlighted button game ends
-After clicking wrong circle game ends
-Add sounds to start game and end game
+/* Add sounds to start game and end game
 Add own image to highlighted circle
 End message is conditional based on the score
 Advanced speedgame (optional): 
@@ -29,14 +27,17 @@ buttonArray.forEach(button => button.addEventListener('click', checkActive));
 
 function checkActive(button) {
     let buttonId = button.target.id;
-    console.log(buttonId);
     if (document.querySelector(`#${buttonId}`).classList.contains('active')) {
         return;
     } else {
+        gameScore = gameScore - 1;
+        score.textContent = gameScore;
         stop();
+        gameOverStatus = true;
     }
 }
 
+let gameOverStatus = false;
 let missCounter = 0;
 let gameSpeed = 1000;
 
@@ -44,14 +45,10 @@ function gameEngine() {
     let buttonInterval = setTimeout(nextTarget, gameSpeed);
 
     function nextTarget() {
-        /* let activeIndex = buttonArray.findIndex(each => each.classList.contains('active')); */
         missCounter++;
         if ((gameScore - missCounter) <= -4) {
             stop();
         }
-        /* if (activeIndex != -1){
-            buttonArray.splice(activeIndex, 1);
-        } */
         let randomNum = Math.floor(Math.random() * buttonArray.length);
         BUTTONS.forEach(button => button.classList.remove("active"));
         buttonArray[randomNum].classList.add("active");
@@ -59,6 +56,12 @@ function gameEngine() {
         let buttonInterval = setTimeout(nextTarget, gameSpeed);
     }
 }
+
+/* let activeIndex = buttonArray.findIndex(each => each.classList.contains('active')); */
+
+/* if (activeIndex != -1){
+            buttonArray.splice(activeIndex, 1);
+        } */
 
 function start() {
     button1.classList.remove("noclick");
