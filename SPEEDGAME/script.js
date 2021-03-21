@@ -23,12 +23,18 @@ let buttonArray = [button1, button2, button3, button4];
 function addScore() {
     gameScore++;
     score.textContent = gameScore;
-    buttonArray.forEach(button => button.addEventListener('click', checkActive));
 }
 
+buttonArray.forEach(button => button.addEventListener('click', checkActive));
+
 function checkActive(button) {
-    let buttonId = button.target.classList;
+    let buttonId = button.target.id;
     console.log(buttonId);
+    if (document.querySelector(`#${buttonId}`).classList.contains('active')) {
+        return;
+    } else {
+        stop();
+    }
 }
 
 let missCounter = 0;
