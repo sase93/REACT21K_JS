@@ -9,10 +9,12 @@
 </head>
 <body>
     <h1>Speedgame</h1>
-    <h2>Current score:</h2>
-    <h2 id="score"></h2>
-    <h2>Missed targets:</h2>
-    <h2 id="misses"></h2>
+    <section class="info">
+        <h2>Current score:</h2>
+        <h2 id="score"></h2>
+        <h2 id="miss-text">Missed targets:</h2>
+        <h2 id="misses"></h2>
+    </section>
     <div class="targets">
         <div class="button noclick" id="one" onclick="addScore()"></div>
         <div class="button noclick" id="two" onclick="addScore()"></div>
@@ -21,7 +23,7 @@
     </div>
     <div id="gameover" class="invis">
         <h1>Game over!</h1>
-        <h2>Your score was: </h2>
+        <h2 id="endmessage"></h2>
         <h2 id="finalscore"></h2>
     </div>
     <div class="timing">

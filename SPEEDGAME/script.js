@@ -33,7 +33,6 @@ function checkActive(button) {
         gameScore = gameScore - 1;
         score.textContent = gameScore;
         stop();
-        gameOverStatus = true;
     }
 }
 
@@ -46,16 +45,19 @@ function gameEngine() {
     let buttonInterval = setTimeout(nextTarget, gameSpeed);
 
     function nextTarget() {
-        missCounter++;
-        misses.textContent = ((gameScore - missCounter) * -1);
-        if ((gameScore - missCounter) <= -3) {
-            stop();
+        console.log("game over:" + gameOverStatus);
+        if (gameOverStatus === false) {
+            missCounter++;
+            misses.textContent = ((gameScore - missCounter) * -1);
+            if ((gameScore - missCounter) <= -3) {
+                stop();
+            }
+            let randomNum = Math.floor(Math.random() * buttonArray.length);
+            BUTTONS.forEach(button => button.classList.remove("active"));
+            buttonArray[randomNum].classList.add("active");
+            gameSpeed = gameSpeed - 15;
+            let buttonInterval = setTimeout(nextTarget, gameSpeed);
         }
-        let randomNum = Math.floor(Math.random() * buttonArray.length);
-        BUTTONS.forEach(button => button.classList.remove("active"));
-        buttonArray[randomNum].classList.add("active");
-        gameSpeed = gameSpeed - 15;
-        let buttonInterval = setTimeout(nextTarget, gameSpeed);
     }
 }
 
@@ -76,12 +78,25 @@ function start() {
 }
 
 function stop() {
+    gameOverStatus = true;
+    console.log("game over:" + gameOverStatus);
     button1.classList.add("noclick");
     button2.classList.add("noclick");
     button3.classList.add("noclick");
     button4.classList.add("noclick");
     document.querySelector("#gameover").classList.remove("invis");
-    finalscore.textContent = gameScore;
+
+    if (gameScore < 11) {
+        endmessage.textContent = "Come on, you can do better!";
+    } else if (gameScore < 20) {
+        endmessage.textContent = "Not too bad, keep trying!";
+    } else if (gameScore < 31) {
+        endmessage.textContent = "You're pretty good!";
+    } else {
+        endmessage.textContent = "Wow, you're really good!";
+    }
+
+    finalscore.textContent = "Your final score was: " + gameScore;
     document.querySelector("#stop").classList.add("invis");
     document.querySelector("#reset").classList.remove("invis");
 }
