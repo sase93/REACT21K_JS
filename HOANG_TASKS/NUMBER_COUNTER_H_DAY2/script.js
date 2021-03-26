@@ -1,6 +1,8 @@
+// Has some bugs and/or unfinished parts.
+
 console.log('Welcome to the Number Counter. A random number between 0-100 will be chosen and displayed, and beneath that the name of that number in Finnish.');
-let randomNum = 220;
-/* let randomNum = Math.round(Math.random() * 1000); */
+
+let randomNum = Math.round(Math.random() * 1000);
 console.log('The random number is:', randomNum);
 
 let numberArray = ["yksi", "kaksi", "kolme", "neljä", "viisi", "kuusi", "seitsemän", "kahdeksan", "yhdeksän", "kymmenen"];
@@ -17,10 +19,7 @@ function toSuomiTens() {
 function toSuomiOtherTens() {
     return (numberArray[((Math.trunc(randomNum/10))-1)]) + "kymmentä" + (numberArray[((randomNum % 10)-1)]);
 }
-/* function toSuomiSata() {
-    return numberArray[(randomNum-101)];
-} 
-only returns single last digit of 101-109*/
+
 function toSuomiHundreds() {
     return (numberArray[((randomNum/100)-1)]);
 }
@@ -59,17 +58,3 @@ if (randomNum === 100) {
     console.log(toSuomiOtherHundreds(randomNum));
 
 }
-
-/*  
-    
-  if (0 <= randomNum && randomNum <= 9){
-      switch(randomNum){
-          case 0:
-              result = nolla
-              break;
-              case 1 ...
-              default:
-                  break;
-      }
-      result and for example result += 'toista'
-  }  */
