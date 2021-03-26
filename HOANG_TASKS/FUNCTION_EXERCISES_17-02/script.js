@@ -1,7 +1,7 @@
 // If you move the script.js injection from body to head in index.html the code will not work UNLESS executeScript is only invoked when the DOMContentLoaded event is detected. You need to handle the DOMContentLoaded event when you place the JavaScript in the head of the page but have the JS referencing elements in the body. Because the DOM has not been loaded when the JavaScript engine parses the JavaScript in the head section in the html, elements in the body do not exist.
 
 (function() {
-    let rowCounter = 2;
+    let rowCounter = 2; //for creating the rows in the table with executeScript.
 
     let testUser = {
         studentNo: 1234567,

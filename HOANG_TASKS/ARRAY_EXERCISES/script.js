@@ -12,20 +12,6 @@ while(true) {
     }
 }
 
-/* while(true) {
-    counter = counter - 1;
-
-    if (chosenNumbers[counter] === 1) {
-        console.log('found a 1');
-    } else {
-        console.log('found a 0');
-    }
-
-    if (counter === 0) {
-        break;
-    }
-} */
-
 let oneCounter = 0;
 let zeroCounter = 0;
 

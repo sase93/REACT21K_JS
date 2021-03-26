@@ -140,8 +140,8 @@ function calculate(){
 // ************* Clear inputs function *************
 
 function clear(){
-    firstNum = 0;
-    secondNum = 0;
+    firstNum = '';
+    secondNum = '';
     operation = '';
     input = '';
     decimalUsed = false;

@@ -20,7 +20,7 @@ async function createPkmns() {
         pkmnCounter++;
     }
     renderTable(pokemons);
-    
+    console.log(pokemons);
     // Secondary API call etc.
     const anchors = document.querySelectorAll(".pokemon");
     anchors.forEach(pokemon => pokemon.addEventListener('click', getPokeInfo));
@@ -33,6 +33,8 @@ async function createPkmns() {
         let name = json.name;
         let sprite = json.sprites.front_default;
         let mainType = json.types[0].type.name;
+
+        console.log(json);
 
         let pokedex = document.querySelector("#clicked-pokemon");
         pokedex.classList.remove("invisible");
