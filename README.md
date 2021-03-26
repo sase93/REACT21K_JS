@@ -1,6 +1,6 @@
 # My React21K JavaScript tasks' repo
 
-This repo is for my various school tasks to do with JavaScript.
+This repo is a collection of my various school tasks to do with JavaScript. It is meant to be a location from which my progress in learning JS can be viewed by my teachers.
 
 ## Technologies used
 
